@@ -153,7 +153,7 @@ TODO ---> implement code table
 
 
 --------------TODO--------------------
-TODO: memory mapping/lookup tables
+memory mapping/lookup tables:
  logo hexdump
  new licenses table
  old licenses table
@@ -162,7 +162,7 @@ TODO: memory mapping/lookup tables
 
 
 
-TODO: CPU/ROM
+CPU/ROM:
 rom memory mapping 
 ROM reading and writing
 cpu data/flags registers
