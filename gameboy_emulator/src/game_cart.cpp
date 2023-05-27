@@ -8,8 +8,9 @@ typedef struct cart_desc
 
 };
 
-
+//No licensed cartridge makes use of game carttridge headers. The exact behavior is unknown.
 // char buffers syntax remain the same from C to c++
+// better to map each index to the bytes defined in the hardware?
 static const char* rom_type[] {
 "ROM ONLY",
 "MBC1",
