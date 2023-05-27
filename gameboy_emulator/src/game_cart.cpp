@@ -8,6 +8,7 @@ typedef struct cart_desc
 
 };
 
+//https://gbdev.io/pandocs/The_Cartridge_Header.html#0147--cartridge-type
 //No licensed cartridge makes use of game carttridge headers. The exact behavior is unknown.
 // char buffers syntax remain the same from C to c++
 // better to map each index to the bytes defined in the hardware?
