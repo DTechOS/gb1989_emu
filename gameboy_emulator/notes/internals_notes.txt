@@ -1,0 +1,172 @@
+CPU          - 8-bit (Similar to the Z80 processor)
+Clock Speed  - 4.194304MHz (4.295454MHz for SGB, max. 8.4MHz for CGB)
+Work RAM     - 8K Byte (32K Byte for CGB)
+Video RAM    - 8K Byte (16K Byte for CGB)
+Screen Size  - 2.6"
+Resolution   - 160x144 (20x18 tiles)
+Max sprites  - Max 40 per screen, 10 per line
+Sprite sizes - 8x8 or 8x16
+Palettes     - 1x4 BG, 2x3 OBJ (for CGB: 8x4 BG, 8x3 OBJ)
+Colors       - 4 grayshades (32768 colors for CGB)
+Horiz Sync   - 9198 KHz (9420 KHz for SGB)
+Vert Sync    - 59.73 Hz (61.17 Hz for SGB)
+Sound        - 4 channels with stereo sound
+Power        - DC6V 0.7W (DC3V 0.7W for GB Pocket, DC3V 0.6W for CGB)
+----------------------------------------------------
+
+LR35902 HIGH LEVEL OVERVIEW:
+
+CPU Registers: 6 registers
+
+16 bit | HI  | LO | Function 
+	   |	 |	  |
+AF	   | A   | -  | Accumulator/Flags 
+BO	   | B 	 | C  | 	
+DE	   | D   | E  |
+HL	   | H   | L  |
+SP	   | -	 | -  | Stack Pointer 
+PC	   | -	 | -  | Counter/Pointer 
+
+F Register = Flag register
+
+
+Memory:
+16-bit address-BUS. Giving an addressable range of 65535 Bytes
+
+memory Map: https://github.com/raphamorim/LR35902
+
+    0x0000 - 0x00FF: Boot ROM
+    0x0000 - 0x3FFF: Game ROM Bank 0
+    0x4000 - 0x7FFF: Game ROM Bank N
+    0x8000 - 0x97FF: Tile RAM
+    0x9800 - 0x9FFF: Background Map
+    0xA000 - 0xBFFF: Cartridge RAM
+    0xC000 - 0xDFFF: Working RAM
+    0xE000 - 0xFDFF: Echo RAM
+    0xFE00 - 0xFE9F: OAM (Object Atribute Memory)
+    0xFEA0 - 0xFEFF: Unused
+    0xFF00 - 0xFF7F: I/O Registers
+    0xFF80 - 0xFFFE: High RAM Area
+    0xFFFF: Interrupt Enabled Register
+	
+	
+	
+	
+Memory Mapping: RIT.edu
+
+Memory Address Purpose
+0x0000 - 0x3FFF Permanently mapped ROM Bank
+0x4000 - 0x7FFF Area for switch ROM Bank
+0x8000 - 0x9FFF Video RAM
+0xA000 - 0xBFFF Area for switchable external RAM banks
+0xC000 - 0xCFFF Game Boy’s working RAM bank 0
+0xD000 - 0xDFFF Game Boy’s working RAM bank 1
+0xFE00 - 0xFEFF Sprite Attribute Table
+0xFF00 - 0xFF7F Devices Mappings. Used to access I/O devices
+0xFF80 - 0xFFFE High RAM Area
+0xFFFF Interrupt Enable Register
+
+CPU Flags:
+
+7 	6 	5 	4 	3 	2 	1 	0
+Z 	N 	H 	C 	0 	0 	0 	0
+
+Z(7) - Zero Flag
+N(6) - Subtract Flag
+H(5) - Half Carry Flag
+C(6) - Carry Flag
+0-3 - Not used, always zero
+
+--------------------------------------------------------
+
+
+
+Defining Cartridge headers:
+
+
+0100-0103 — Entry point - Entry Point:
+Most commercial games fill this 4-byte area with a nop instruction followed by a jp $0150.
+
+The entry point will be 4 bytes
+logo[4]
+
+
+0104-0133 — Nintendo logo
+
+This area contains a bitmap image that is displayed when the Game Boy is powered on. 
+It must match the following (hexadecimal) dump, otherwise the boot ROM won’t allow the game to run:
+
+CE ED 66 66 CC 0D 00 0B 03 73 00 83 00 0C 00 0D
+00 08 11 1F 88 89 00 0E DC CC 6E E6 DD DD D9 99
+BB BB 67 63 6E 0E EC CC DD DC 99 9F BB B9 33 3E
+
+
+
+0144-0145 — New licensee code:
+
+This area contains a two-character ASCII “licensee code” indicating the game’s publisher. 
+It is only meaningful if the Old licensee is exactly $33 (which is the case for essentially all games made after 
+the SGB was released); otherwise, the old code must be considered.
+
+TODO ---> make a lookup table of publisher codes (00-99-A4)
+     --> will probably make this along side memory mapping
+
+
+0146 — SGB flag:
+
+This byte specifies whether the game supports SGB functions. The SGB will ignore any command packets if 
+this byte is set to a value other than $03 (typically $00).
+
+
+0147 — Cartridge type:
+
+This byte indicates what kind of hardware is present on the cartridge — most notably its mapper.
+
+--> implement the type map as a lookup table.
+
+
+014A — Destination code:
+
+This byte specifies whether this version of the game is intended to be sold in Japan or elsewhere.
+
+Only two values are defined:
+
+
+014B — Old licensee code
+
+This byte is used in older (pre-SGB) cartridges to specify the game’s publisher. However, 
+the value $33 indicates that the New licensee codes must be considered instead. 
+(The SGB will ignore any command packets unless this value is $33.)
+
+list of known old licensee codes ---> 
+TODO ---> implement code table
+
+-------------------------------------------
+
+
+
+
+
+
+
+
+
+
+--------------TODO--------------------
+TODO: memory mapping/lookup tables
+ logo hexdump
+ new licenses table
+ old licenses table
+ ROM/RAM sizes 
+ header/global checksums
+
+
+
+TODO: CPU/ROM
+rom memory mapping 
+ROM reading and writing
+cpu data/flags registers
+
+
+
+------------------------------------
