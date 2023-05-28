@@ -48,7 +48,7 @@ static const char* rom_type[] {
 };
 
 // <map>,<string> used to map hex key to publisher
-std::map<int, std::string> old_lic_code = {
+std::map<int, std::string> *old_lic_code[0x100] = {
     {0x00, "None"},
     {0x01, "Nintendo"},
     {0x08, "Capcom"},
