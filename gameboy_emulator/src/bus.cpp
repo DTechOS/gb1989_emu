@@ -27,8 +27,7 @@
 
 
 
-// annoying c++ convention means I have to declare int u8 bus_read, 
-// doesnt bus_read already have a typedef in bus.h???
+
 int u8 bus_read(u16 address) {
     if (address < 0x8000) {
         //ROM Data
