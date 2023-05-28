@@ -48,6 +48,9 @@ static const char* rom_type[] {
 };
 
 // <map>,<string> used to map hex key to publisher
+// No idea if this is actually correct c++ syntax or not
+// initializing it in C syntax --> static const char* old_lic_code[0x100],
+// doesnt give any errors both seem to work
 std::map<int, std::string> *old_lic_code[0x100] = {
     {0x00, "None"},
     {0x01, "Nintendo"},
