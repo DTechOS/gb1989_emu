@@ -11,11 +11,49 @@ typedef struct cart_desc
     u8 *rom_data;
 
 };
+auto rom_type(u8 type){
+    switch (type) {
+        case: 0x00
+        case: 0x08
+        case: 0x09
+    }
 
+};
+
+
+/* 
+$00	ROM ONLY
+$01	MBC1
+$02	MBC1+RAM
+$03	MBC1+RAM+BATTERY
+$05	MBC2
+$06	MBC2+BATTERY
+$08	ROM+RAM 1
+$09	ROM+RAM+BATTERY 1
+$0B	MMM01
+$0C	MMM01+RAM
+$0D	MMM01+RAM+BATTERY
+$0F	MBC3+TIMER+BATTERY
+$10	MBC3+TIMER+RAM+BATTERY 2
+$11	MBC3
+$12	MBC3+RAM 2
+$13	MBC3+RAM+BATTERY 2
+$19	MBC5
+$1A	MBC5+RAM
+$1B	MBC5+RAM+BATTERY
+$1C	MBC5+RUMBLE
+$1D	MBC5+RUMBLE+RAM
+$1E	MBC5+RUMBLE+RAM+BATTERY
+$20	MBC6
+$22	MBC7+SENSOR+RUMBLE+RAM+BATTERY
+$FC	POCKET CAMERA
+$FD	BANDAI TAMA5
+$FE	HuC3
+$FF	HuC1+RAM+BATTERY
+*/
+
+//switching to case for mapping byte values to rom type instead
 //https://gbdev.io/pandocs/The_Cartridge_Header.html#0147--cartridge-type
-//No licensed cartridge makes use of game carttridge headers. The exact behavior is unknown.
-// char buffers syntax remain the same from C to c++
-// better to map each index to the bytes defined in the hardware?
 static const char* rom_type[] {
 "ROM ONLY",
 "MBC1",
