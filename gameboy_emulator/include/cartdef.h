@@ -2,7 +2,7 @@
 
 #include <definitions.h>
 
-struct romheader 
+typedef struct
 {
     u8 entry[4];
     u8 logo[48];
@@ -18,7 +18,7 @@ struct romheader
     u8 ver_num;
     u8 header_checksum;
     u16 global_checksum; 
-};
+} rom_header;
 
 // global_checksum - (big-endian 16 bit) checksum is computed as the sum of all the bytes of the cartridge ROM
 // header_checksum - 8-bit checksum computed from the cartridge header bytes $0134–014C
