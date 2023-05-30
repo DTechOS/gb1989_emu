@@ -21,7 +21,7 @@ auto rom_type(u8 type){
 };
 
 
-/* 
+/* ROM TYPES:
 $00	ROM ONLY
 $01	MBC1
 $02	MBC1+RAM
@@ -52,37 +52,35 @@ $FE	HuC3
 $FF	HuC1+RAM+BATTERY
 */
 
-//switching to case for mapping byte values to rom type instead
-//https://gbdev.io/pandocs/The_Cartridge_Header.html#0147--cartridge-type
-static const char* rom_type[] {
-"ROM ONLY",
-"MBC1",
-"MBC1+RAM",
-"MBC1+RAM+BATTERY",
-"MBC2",
-"MBC2+BATTERY",
-"ROM+RAM 1",
-"ROM+RAM+BATTERY 1",
-"MMM01",
-"MMM01+RAM",
-"MMM01+RAM+BATTERY",
-"MBC3+TIMER+BATTERY",
-"MBC3+TIMER+RAM+BATTERY 2",
-"MBC3",
-"MBC3+RAM 2",
-"MBC3+RAM+BATTERY 2",
-"MBC5",
-"MBC5+RAM",
-"MBC5+RAM+BATTERY",
-"MBC5+RUMBLE",
-"MBC5+RUMBLE+RAM",
-"MBC5+RUMBLE+RAM+BATTERY",
-"MBC6",
-"MBC7+SENSOR+RUMBLE+RAM+BATTERY",
-"POCKET CAMERA",
-"BANDAI TAMA5",
-"HuC3",
-"HuC1+RAM+BATTERY",
+enum class rom_type {
+    ROM_ONLY,
+    MBC1,
+    MBC1_RAM,
+    MBC1_RAM_BATTERY,
+    MBC2,
+    MBC2_BATTERY,
+    ROM_RAM1,
+    ROM_RAM_BATTERY1,
+    MMM01,
+    MMM01_RAM,
+    MMM01_RAM_BATTERY,
+    MBC3_TIMER_BATTERY,
+    MBC3_TIMER_RAM_BATTERY2,
+    MBC3,
+    MBC3_RAM2,
+    MBC3_RAM_BATTERY2,
+    MBC5,
+    MBC5_RAM,
+    MBC5_RAM_BATTERY,
+    MBC5_RUMBLE,
+    MBC5_RUMBLE_RAM,
+    MBC5_RUMBLE_RAM_BATTERY,
+    MBC6,
+    MBC7_SENSOR_RUMBLE_RAM_BATTERY,
+    POCKET_CAMERA,
+    BANDAI_TAMA5,
+    HuC3,
+    HuC1_RAM_BATTERY,
 };
 
 // <map>,<string> used to map hex key to publisher
