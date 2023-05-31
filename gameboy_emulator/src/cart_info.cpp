@@ -51,36 +51,6 @@ $FE	HuC3
 $FF	HuC1+RAM+BATTERY
 */
 
-enum class rom_type {
-    ROM_ONLY,
-    MBC1,
-    MBC1_RAM,
-    MBC1_RAM_BATTERY,
-    MBC2,
-    MBC2_BATTERY,
-    ROM_RAM1,
-    ROM_RAM_BATTERY1,
-    MMM01,
-    MMM01_RAM,
-    MMM01_RAM_BATTERY,
-    MBC3_TIMER_BATTERY,
-    MBC3_TIMER_RAM_BATTERY2,
-    MBC3,
-    MBC3_RAM2,
-    MBC3_RAM_BATTERY2,
-    MBC5,
-    MBC5_RAM,
-    MBC5_RAM_BATTERY,
-    MBC5_RUMBLE,
-    MBC5_RUMBLE_RAM,
-    MBC5_RUMBLE_RAM_BATTERY,
-    MBC6,
-    MBC7_SENSOR_RUMBLE_RAM_BATTERY,
-    POCKET_CAMERA,
-    BANDAI_TAMA5,
-    HuC3,
-    HuC1_RAM_BATTERY,
-};
 
 // <map>,<string> used to map hex key to publisher
 // No idea if this is actually correct c++ syntax or not
