@@ -1,5 +1,5 @@
 #include <bus.h>
-#include <cartdef.h>
+#include <gameinfo.h>
 
 
 
