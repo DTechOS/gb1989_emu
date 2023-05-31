@@ -1,4 +1,4 @@
-#include <cartdef.h>
+#include <gameinfo.h>
 #include <iostream>
 #include <string>
 #include <map>
