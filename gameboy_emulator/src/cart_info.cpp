@@ -16,7 +16,7 @@ auto rom_type(u8 type) -> RomType {
         case: 0x00
         case: 0x08
         case: 0x09
-    } return RomType::ROMonly
+    } return RomType::ROM_ONLY
 
 };
 
