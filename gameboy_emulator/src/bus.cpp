@@ -22,7 +22,7 @@
 */
 
 // case statements wouldnt be scalable for memory ranges, but there's an exentension for 
-// gcc that allows ranges ex: case 0x00 ... 0x3FFF: {}
+// gcc that allows ranges ex: case: 0x00 ... 0x3FFF {}
 
 
 
