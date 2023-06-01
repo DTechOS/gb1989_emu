@@ -91,7 +91,7 @@ enum class RomSize {
 // global_checksum - (big-endian 16 bit) checksum is computed as the sum of all the bytes of the cartridge ROM
 // header_checksum - 8-bit checksum computed from the cartridge header bytes $0134–014C
 
-//static or thread storage duration and external linkage. 
+//extern: static or thread storage duration and external linkage. 
 extern auto rom_type(u8 type) -> RomType;
 
 #define bool cart_load(char *cart);
