@@ -4,16 +4,6 @@
 #include <map>
 
 
-// WARNING C4005
-// The macro identifier is defined twice. The compiler uses the second macro definition.
-struct cart_desc {
-    char filename[1024];
-    u32 rom_size;
-    u8 *rom_data;
-    rom_header *header;
-};
-
-
 auto rom_type(u8 type) -> RomType {
     switch (type) {
         case 0x00:
