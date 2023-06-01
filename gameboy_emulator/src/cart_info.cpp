@@ -11,16 +11,29 @@ typedef struct cart_desc
     u8 *rom_data;
 
 };
+
 auto rom_type(u8 type) -> RomType {
     switch (type) {
         case 0x00:
         case 0x08:
         case 0x09:
             return RomType::ROM_ONLY;
-    } 
 
-}
+        case 0x01: 
+        case 0x02:
+        case 0x03:
+            return RomType::MBC1;
+        
+        case 0x05:
+        case 0x06:
+            return RomType::MBC2;
 
+        case 0x0B
+        case 0x0C
+        case 0x0D
+            return RomType::MMM01;
+        } 
+};
 /* ROM TYPES:
 $00	ROM ONLY
 $01	MBC1
