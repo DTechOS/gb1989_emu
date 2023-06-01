@@ -32,8 +32,43 @@ auto rom_type(u8 type) -> RomType {
         case 0x0C:
         case 0x0D:
             return RomType::MMM01;
+
+        case 0x0F:
+        case 0x10:
+        case 0x11:
+        case 0x12:
+        case 0x13:
+            return RomType::MBC3;
+        
+        case 0x19: 
+        case 0x1A:
+        case 0x1B:
+        case 0x1C:
+        case 0x1D:
+        case 0x1C:
+            return RomType::MBC5;
+
+        case 0x20:
+            return RomType::MBC6;
+
+        case 0x22:
+            return RomType::MBC7;
+
+        case 0xFC:
+            return RomType::POCKET_CAMERA; //probably could put 0xFC and 0xFD in "Unused"
+
+        case 0xFD:
+            return RomType::BANDAI_TAMA5;
+
+        case 0xFE:
+            return RomType::HuC3;
+
+        case 0xFF:
+            return RomType::HuC1_RAM_BATTERY;
         } 
 };
+
+
 /* ROM TYPES:
 $00	ROM ONLY
 $01	MBC1
