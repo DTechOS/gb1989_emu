@@ -28,9 +28,9 @@ auto rom_type(u8 type) -> RomType {
         case 0x06:
             return RomType::MBC2;
 
-        case 0x0B
-        case 0x0C
-        case 0x0D
+        case 0x0B:
+        case 0x0C:
+        case 0x0D:
             return RomType::MMM01;
         } 
 };
