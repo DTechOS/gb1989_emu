@@ -19,7 +19,7 @@
 014D — Header checksum
 014E-014F — Global checksum*/
 
-// cant decide on using classes and mapping the hex value or just keep the header in a struct
+
 typedef struct
 {
     u8 entry[4];
