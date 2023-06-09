@@ -83,9 +83,16 @@ $52	1.1 MiB	72 3
 $53	1.2 MiB	80 3
 $54	1.5 MiB	
 */
+
+// in cartinfo.cc open ROM read rom data from space in memory defined in the memory map, get rom size from position and call 
+// malloc() on return value
 enum class RomSize {
-    KB64,
     KB32,
+    KB64,
+    KB128,
+    KB256,
+    KB512,
+    MiB1,
 };
 
 // global_checksum - (big-endian 16 bit) checksum is computed as the sum of all the bytes of the cartridge ROM
