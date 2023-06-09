@@ -311,7 +311,6 @@ std::map<int, std::string> *new_lic_code[0xA5] {
     {0xA4, "Konami (Yu-G0xi-Oh!)"}
 };
 
-//delete the define in cart_info.hpp
 //hopefully accessing rom_header from here will work
 bool cart_load(char *cart) 
 {
@@ -319,3 +318,5 @@ bool cart_load(char *cart)
     
     std::FILE *fp = fopen(cart,"r");
 };
+
+//rom_data = malloc(cart_desc.rom_size)
