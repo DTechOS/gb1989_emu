@@ -1,7 +1,5 @@
-#include <bus.h>
-#include <cartinfo.h>
-
-
+#include <bus.hpp>
+#include <cartinfo.hpp>
 
 
 
@@ -21,18 +19,22 @@
     0xFFFF: Interrupt Enabled Register
 */
 
-// case statements wouldnt be scalable for memory ranges, but there's an exentension for 
-// gcc that allows ranges ex: case: 0x00 ... 0x3FFF {}
 
-
-
-
-
-int u8 bus_read(u16 address) {
+u8 bus_read(u16 address) {
     if (address < 0x8000) {
-        //ROM Data
-        return cart_read(address);
+        cart_read(address);
+        return;
     }
 
     NO_IMPL
-}
+};
+
+
+void bus_write(u16 address, u8 value) {
+    if (address < 0x8000) {
+        cart_write(address, value);
+        return;
+    }
+    
+    NO_IMPL
+};
