@@ -101,8 +101,8 @@ enum class RomSize {
 //extern: static or thread storage duration and external linkage. 
 extern auto rom_type(u8 type) -> RomType;
 
-#define bool cart_load(char *cart);
+bool cart_load(char *cart);
 
-#define int u8 cart_read(u16 address);
-#define void cart_write(u16 address, u8 value);
+u8 cart_read(u16 address);
+void cart_write(u16 address, u8 value);
 
