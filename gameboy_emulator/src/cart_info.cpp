@@ -310,3 +310,12 @@ std::map<int, std::string> *new_lic_code[0xA5] {
     {0x99, "Pack in soft"}
     {0xA4, "Konami (Yu-G0xi-Oh!)"}
 };
+
+//delete the define in cart_info.hpp
+//hopefully accessing rom_header from here will work
+bool cart_load(char *cart) 
+{
+    std::snprintf(rom_header.filename, std:size_t rom_header.filename, "%s", cart);
+    
+    std::FILE *fp = fopen(cart,"r");
+};
