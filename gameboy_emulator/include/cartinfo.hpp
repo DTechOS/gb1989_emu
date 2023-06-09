@@ -99,10 +99,11 @@ enum class RomSize {
 // header_checksum - 8-bit checksum computed from the cartridge header bytes $0134–014C
 
 //extern: static or thread storage duration and external linkage. 
-extern auto rom_type(u8 type) -> RomType;
+//extern auto rom_type(u8 type) -> RomType;
 
 bool cart_load(char *cart);
 
+// define cart_read/cart_write in cartinfo.cpp
 u8 cart_read(u16 address);
 void cart_write(u16 address, u8 value);
 
