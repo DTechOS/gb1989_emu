@@ -312,11 +312,12 @@ std::map<int, std::string> *new_lic_code[0xA5] {
 };
 
 //hopefully accessing rom_header from here will work
+static rom_header ctx;
+//hopefully accessing rom_header from here will work
 bool cart_load(char *cart) 
 {
-    std::snprintf(rom_header.filename, std:size_t rom_header.filename, "%s", cart);
+    snprintf(ctx.filename, sizeof(ctx.filename), "%s", cart);
     
     std::FILE *fp = fopen(cart,"r");
 };
-
 //rom_data = malloc(cart_desc.rom_size)
