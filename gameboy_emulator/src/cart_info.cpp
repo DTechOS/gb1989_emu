@@ -310,9 +310,8 @@ const std::unordered_map<u8, const char*> old_lic_code {
     
 
 
-//hopefully accessing rom_header from here will work
 static rom_header ctx;
-//hopefully accessing rom_header from here will work
+
 bool cart_load(char *cart) 
 {
     snprintf(ctx.filename, sizeof(ctx.filename), "%s", cart);
