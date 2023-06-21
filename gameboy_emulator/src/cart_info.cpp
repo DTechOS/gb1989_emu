@@ -94,7 +94,7 @@ $FF	HuC1+RAM+BATTERY
 
 
 // <map>,<string> used to map hex key to publisher
-// think this fixes the memory leak
+
 const std::unordered_map<u8, const char*> LIC_CODE {
      {0x01, "Nintendo R&D1"},
      {0x08, "Capcom"},
